@@ -16,13 +16,8 @@ import play13 from '../assets/playlist/13.jpeg'
 import play14 from '../assets/playlist/14.jpeg'
 import play15 from '../assets/playlist/15.jpeg'
 
-const Main = () => {
-    const [artists, setArtists] = useState([]);
-    const [showPlaylists, setShowPlaylists] = useState(true);
-
-    const toggleView = () => {
-        setShowPlaylists(!showPlaylists);
-    }
+const Main = ({artists}) => {
+    const showPlaylists = artists.length === 0;
 
     return (
         <div className='main-container'>
@@ -165,7 +160,7 @@ const Main = () => {
                 {artists.map(artist => (
                     <div key={artist.id} className="artist-card" id="">
                     <div className="card-img">
-                        <img src={artist.image} id="artist-img" className="artist-img" />
+                        <img src={artist.urlImg} id="artist-img" className="artist-img" />
                         <div className="play">
                             <span className="fa fa-solid fa-play"></span>
                         </div>
